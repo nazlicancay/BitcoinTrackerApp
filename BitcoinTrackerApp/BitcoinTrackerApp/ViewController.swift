@@ -17,8 +17,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var lastUpdated: UILabel!
     
-    let urlString = "https://api.coingecko.com/api/v3/exchange_rates"
+    @IBOutlet weak var refreshButton: UIButton!
     
+    
+    let urlString = "https://api.coingecko.com/api/v3/exchange_rates"
+
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
@@ -62,6 +66,9 @@ class ViewController: UIViewController {
        
 
     }
+    @IBAction private func refreshButtonPressed(_ sender: Any) {
+           fetchData()
+       }
     
     private func PriceFormat(_ price: Price) -> String {
         
